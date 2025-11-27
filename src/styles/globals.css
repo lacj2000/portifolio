@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html, body, #__next, #root, body > div {
   height: 100%;
   margin: 0;
