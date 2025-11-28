@@ -18,53 +18,49 @@ export default function Home() {
   const skillsRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
 
-  // Array ordenado de refs (deve bater com a ordem do menu)
-  const sections = [heroRef, aboutRef, projectsRef, skillsRef, contactRef];
-
-  // 2. Estado numérico
   const [activeSection, setActiveSection] = useState(0);
 
-  // 3. Função de Scroll baseada em Index
   const scrollToSection = (index: number) => {
     setActiveSection(index);
-    const targetRef = sections[index];
-
-    if (targetRef?.current) {
-      targetRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-    }
   };
+
 
   return (
     <div className="relative min-h-screen bg-background text-foreground selection:bg-primary/30 pl-20">
 
-      {/* Nova Navigation */}
       <Navigation activeSection={activeSection} onNavigate={scrollToSection} />
 
-      {/* Background Patterns */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#202020_1px,transparent_1px),linear-gradient(to_bottom,#202020_1px,transparent_1px)] bg-size-[4rem_4rem] opacity-[0.05]" />
         <div className="absolute inset-0 bg-linear-to-b from-background via-transparent to-background" />
       </div>
 
-      <main className="relative z-10">
-        {/* Index 0: Hero */}
-        <Hero ref={heroRef} />
+      <motion.main
+        className="relative z-10 flex w-[500vw]" // 5 seções = 500vw
+        animate={{ x: `-${activeSection * 100}vw` }}
+        transition={{ type: "spring", stiffness: 60, damping: 20 }}
+      >
+        <section className="w-screen h-screen shrink-0">
+          <Hero />
+        </section>
 
-        {/* Index 1: About (Placeholder) */}
-        <About ref={aboutRef} />
-        
-        {/* Index 2: Projects */}
-        <Projects ref={projectsRef} />
+        <section className="w-screen h-screen shrink-0">
+          <About />
+        </section>
 
-        {/* Index 3: Skills (Placeholder) */}
-        <Skills ref={skillsRef} />
+        <section className="w-screen h-screen shrink-0">
+          <Projects />
+        </section>
 
-        {/* Index 4: Contact (Placeholder) */}
-        <Contact ref={contactRef} />
-      </main>
+        <section className="w-screen h-screen shrink-0">
+          <Skills />
+        </section>
+
+        <section className="w-screen h-screen shrink-0">
+          <Contact />
+        </section>
+      </motion.main>
+
     </div>
   );
 }
