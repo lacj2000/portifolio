@@ -1,32 +1,37 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { Navigation } from "@/components/layout/Navigation"; // Novo componente
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { Navigation } from "@/components/layout/Navigation"; 
 import { Hero } from "@/components/sections/Hero";
 import { Projects } from "@/components/sections/Projects";
 import { Skills } from "@/components/sections/Skills";
 import { About } from "@/components/sections/About";
 import { Contact } from "@/components/sections/Contact";
 
-
 export default function Home() {
-  // 1. Refs para todas as seções
-  const heroRef = useRef<HTMLDivElement>(null);
-  const aboutRef = useRef<HTMLDivElement>(null);
-  const projectsRef = useRef<HTMLDivElement>(null);
-  const skillsRef = useRef<HTMLDivElement>(null);
-  const contactRef = useRef<HTMLDivElement>(null);
-
   const [activeSection, setActiveSection] = useState(0);
+  const totalSections = 5;
 
   const scrollToSection = (index: number) => {
     setActiveSection(index);
   };
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight") {
+        setActiveSection((prev) => Math.min(prev + 1, totalSections - 1));
+      } else if (e.key === "ArrowLeft") {
+        setActiveSection((prev) => Math.max(prev - 1, 0));
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   return (
-    <div className="relative min-h-screen bg-background text-foreground selection:bg-primary/30 pl-20">
+    <div className="relative h-screen w-screen overflow-hidden bg-background text-foreground selection:bg-primary/30 pl-20">
 
       <Navigation activeSection={activeSection} onNavigate={scrollToSection} />
 
@@ -36,31 +41,23 @@ export default function Home() {
       </div>
 
       <motion.main
-        className="relative z-10 flex w-[500vw]" // 5 seções = 500vw
+        className="relative z-10 flex h-full"
         animate={{ x: `-${activeSection * 100}vw` }}
-        transition={{ type: "spring", stiffness: 60, damping: 20 }}
+        transition={{ type: "spring", stiffness: 50, damping: 20, mass: 0.8 }}
+        style={{ width: `${totalSections * 100}vw` }}
       >
-        <section className="w-screen h-screen shrink-0">
-          <Hero />
-        </section>
-
-        <section className="w-screen h-screen shrink-0">
-          <About />
-        </section>
-
-        <section className="w-screen h-screen shrink-0">
-          <Projects />
-        </section>
-
-        <section className="w-screen h-screen shrink-0">
-          <Skills />
-        </section>
-
-        <section className="w-screen h-screen shrink-0">
-          <Contact />
-        </section>
+        <SectionWrapper><Hero /></SectionWrapper>
+        <SectionWrapper><About /></SectionWrapper>
+        <SectionWrapper><Projects /></SectionWrapper>
+        <SectionWrapper><Skills /></SectionWrapper>
+        <SectionWrapper><Contact /></SectionWrapper>
       </motion.main>
-
     </div>
   );
 }
+
+const SectionWrapper = ({ children }: { children: React.ReactNode }) => (
+  <section className="h-screen w-screen shrink-0 overflow-hidden flex items-center justify-baseline relative">
+    {children}
+  </section>
+);

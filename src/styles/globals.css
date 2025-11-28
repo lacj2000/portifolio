@@ -36,11 +36,6 @@
   --font-display: var(--font-playfair); /* Adicionei para o seu 'font-display' */
 }
 
-html, body {
-  scroll-behavior: smooth;
-  overflow: hidden;
-}
-
 
 /* Utilitários Extras */
 body {

@@ -7,22 +7,23 @@ interface HeroProps {}
 export const Hero = forwardRef<HTMLDivElement, HeroProps>((props, ref) => {
   return (
     <section 
-      ref={ref} // O ref recebido do pai é conectado aqui
+      ref={ref}
       id="hero"
       className="flex min-h-screen flex-col justify-center px-12 lg:px-24 pt-20"
     >
       <span className="mb-6 font-mono text-sm uppercase tracking-widest text-blue-500">
-        Desenvolvedor & Designer
+        Desenvolvedor Full Stack & Criador de Soluções
+
       </span>
 
+
       <h1 className="max-w-4xl font-serif text-6xl font-medium leading-[1.1] md:text-8xl">
-        Criando <br />
-        <span className="text-blue-500 italic">experiências</span> <br />
-        digitais únicas
+        Transfomo ideias em <br />
+        <span className="text-blue-500 italic">experiências digitais.</span>
       </h1>
 
       <p className="mt-8 max-w-xl text-lg text-gray-400 leading-relaxed">
-        Transformo ideias complexas em interfaces elegantes e funcionais. 
+        Transformo ideias em experiências prontas para o mundo real. <br />
         Cada linha de código é uma oportunidade de criar algo extraordinário.
       </p>
 
