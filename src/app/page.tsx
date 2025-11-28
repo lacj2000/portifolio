@@ -1,9 +1,14 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Navigation } from "@/components/layout/Navigation"; // Novo componente
 import { Hero } from "@/components/sections/Hero";
 import { Projects } from "@/components/sections/Projects";
+import { Skills } from "@/components/sections/Skills";
+import { About } from "@/components/sections/About";
+import { Contact } from "@/components/sections/Contact";
+
 
 export default function Home() {
   // 1. Refs para todas as seções
@@ -40,8 +45,8 @@ export default function Home() {
 
       {/* Background Patterns */}
       <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#202020_1px,transparent_1px),linear-gradient(to_bottom,#202020_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-[0.05]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#202020_1px,transparent_1px),linear-gradient(to_bottom,#202020_1px,transparent_1px)] bg-size-[4rem_4rem] opacity-[0.05]" />
+        <div className="absolute inset-0 bg-linear-to-b from-background via-transparent to-background" />
       </div>
 
       <main className="relative z-10">
@@ -49,22 +54,16 @@ export default function Home() {
         <Hero ref={heroRef} />
 
         {/* Index 1: About (Placeholder) */}
-        <section ref={aboutRef} className="min-h-screen flex items-center justify-center border-t border-border/10">
-          <h2 className="text-4xl font-serif text-muted-foreground">Sobre Mim</h2>
-        </section>
-
+        <About ref={aboutRef} />
+        
         {/* Index 2: Projects */}
         <Projects ref={projectsRef} />
 
         {/* Index 3: Skills (Placeholder) */}
-        <section ref={skillsRef} className="min-h-screen flex items-center justify-center border-t border-border/10">
-          <h2 className="text-4xl font-serif text-muted-foreground">Skills</h2>
-        </section>
+        <Skills ref={skillsRef} />
 
         {/* Index 4: Contact (Placeholder) */}
-        <section ref={contactRef} className="min-h-screen flex items-center justify-center border-t border-border/10">
-          <h2 className="text-4xl font-serif text-muted-foreground">Contato</h2>
-        </section>
+        <Contact ref={contactRef} />
       </main>
     </div>
   );
