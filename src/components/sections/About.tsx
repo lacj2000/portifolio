@@ -1,12 +1,11 @@
 import { forwardRef } from "react";
-import { Contact } from "./Contact";
 
 export const About = forwardRef<HTMLDivElement>((props, ref) => {
   return (
-    <section 
+    <section
       ref={ref}
-      id="About" 
-      className="min-h-screen flex flex-col items-center justify-center border-t border-white/5 bg-black/20"
+      id="about"
+      className="flex min-h-screen flex-col justify-center px-12 lg:px-24 pt-20"
     >
       <h2 className="font-serif text-5xl mb-8">Sobre</h2>
       <p className="text-gray-400">Aqui vai entrar o scroll horizontal...</p>
