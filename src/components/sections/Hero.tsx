@@ -1,6 +1,7 @@
 import { forwardRef } from "react";
 import { ArrowRight } from "lucide-react";
 
+
 // Props opcionais, caso queira passar dados dinâmicos no futuro
 interface HeroProps {}
 
@@ -39,9 +40,8 @@ export const Hero = forwardRef<HTMLDivElement, HeroProps>((props, ref) => {
       </div>
 
       {/* Indicador de Scroll */}
-      <div className="absolute bottom-10 right-24 hidden flex-col items-center gap-2 md:flex">
-        <span className="rotate-90 text-xs tracking-widest text-gray-500">SCROLL</span>
-        <div className="h-16 w-px bg-linear-to-b from-blue-500 to-transparent"></div>
+      <div className="absolute bottom-auto right-24 hidden flex-col items-center gap-2 md:flex">
+        <span className="rotate-90 text-xs tracking-widest text-gray-500"> Luiz Junior {new Date().getFullYear()}</span>
       </div>
     </section>
   );

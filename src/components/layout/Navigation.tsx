@@ -7,25 +7,24 @@ interface NavigationProps {
 }
 
 const sectionItems = [
-  { icon: Home, label: "Home" }, // Index 0
-  { icon: User, label: "Sobre" }, // Index 1
-  { icon: Briefcase, label: "Projetos" }, // Index 2
-  { icon: Code, label: "Skills" }, // Index 3
-  { icon: Mail, label: "Contato" }, // Index 4
+  { icon: Home, label: "Home" },
+  { icon: User, label: "Sobre" },
+  { icon: Briefcase, label: "Projetos" },
+  { icon: Code, label: "Skills" },
+  { icon: Mail, label: "Contato" },
 ];
 
 export function Navigation({ activeSection, onNavigate }: NavigationProps) {
   return (
-    <nav className="fixed left-0 top-0 bottom-0 z-50 flex flex-col items-center justify-center w-20 bg-card/80 backdrop-blur-md border-r border-border/50">
+    <nav className="fixed left-0 top-0 bottom-0 z-50 flex flex-col items-center justify-center w-20 bg-card backdrop-blur-md ">
       
-      {/* Logo */}
       <div className="absolute top-8 font-serif text-2xl font-bold text-gradient-primary">
         LJ
       </div>
 
-      {/* Navigation items */}
       <div className="flex flex-col items-center gap-4">
         {sectionItems.map((item, index) => {
+          console.log('Rendering item:', item.label, 'Active Section:', activeSection);
           const isActive = activeSection === index;
           return (
             <button
@@ -34,7 +33,7 @@ export function Navigation({ activeSection, onNavigate }: NavigationProps) {
               className={cn(
                 "group relative flex items-center justify-center w-12 h-12 rounded-xl transition-all duration-300",
                 isActive 
-                  ? "bg-primary text-primary-foreground shadow-lg shadow-blue-500/25" 
+                  ? "bg-blue-500 text-primary-foreground shadow-lg shadow-blue-500/25" 
                   : "text-muted-foreground hover:text-foreground hover:bg-secondary"
               )}
               aria-label={item.label}
