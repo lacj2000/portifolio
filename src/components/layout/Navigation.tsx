@@ -56,7 +56,7 @@ export function Navigation({ activeSection, onNavigate }: NavigationProps) {
             className={cn(
               "rounded-full transition-all duration-300 transform-gpu",
               activeSection === index
-                ? "w-5 h-2 bg-(--color-primary) shadow-[0_0_10px_var(--color-primary)]"
+                ? "w-6.5 h-1.5 bg-(--color-primary) shadow-[0_0_10px_var(--color-primary)]"
                 : "w-1.5 h-1.5 bg-(--color-muted-foreground)/20"
             )}
           />

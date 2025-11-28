@@ -3,7 +3,9 @@ import { ArrowRight } from "lucide-react";
 
 
 // Props opcionais, caso queira passar dados dinâmicos no futuro
-interface HeroProps { }
+interface HeroProps {
+  onNavigate?: (index: number) => void;
+}
 
 export const Hero = forwardRef<HTMLDivElement, HeroProps>((props, ref) => {
   return (
@@ -13,6 +15,15 @@ export const Hero = forwardRef<HTMLDivElement, HeroProps>((props, ref) => {
       className="flex min-h-screen flex-col justify-center px-12 lg:px-24 pt-20"
     >
       <div className="absolute inset-0 z-0 pointer-events-none">
+
+        {/* Radial blue glow behind the title (subtle, ~10% opacity) */}
+        <div
+          aria-hidden
+          className="absolute left-1/2 top-58 -translate-x-1/2 w-160 h-100 rounded-full blur-3xl pointer-events-none"
+          style={{
+            background: 'radial-gradient(circle at center, rgba(60,131,246,0.10), transparent 45%)',
+          }}
+        />
 
         <div className="absolute inset-0 h-full w-full bg-[linear-gradient(to_right,#3b82f612_1px,transparent_1px),linear-gradient(to_bottom,#3b82f612_1px,transparent_1px)] bg-size-[4rem_4rem] mask-[radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
 
@@ -49,7 +60,6 @@ export const Hero = forwardRef<HTMLDivElement, HeroProps>((props, ref) => {
             </button>
           </div>
 
-          {/* Indicador de Scroll */}
           <div className="absolute bottom-[50%] right-24 hidden flex-col items-center gap-2 md:flex">
             <span className="rotate-90 text-xs tracking-widest text-gray-500"> Luiz Junior {new Date().getFullYear()}</span>
           </div>

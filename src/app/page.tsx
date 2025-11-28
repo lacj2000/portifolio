@@ -46,7 +46,7 @@ export default function Home() {
         transition={{ type: "spring", stiffness: 50, damping: 20, mass: 0.8 }}
         style={{ width: `${totalSections * 100}vw` }}
       >
-        <SectionWrapper><Hero /></SectionWrapper>
+        <SectionWrapper><Hero onNavigate={scrollToSection} /></SectionWrapper>
         <SectionWrapper><About /></SectionWrapper>
         <SectionWrapper><Projects /></SectionWrapper>
         <SectionWrapper><Skills /></SectionWrapper>
