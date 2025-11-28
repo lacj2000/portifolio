@@ -51,15 +51,19 @@ export function Navigation({ activeSection, onNavigate }: NavigationProps) {
       {/* Progress indicator (moved to bottom-right, active item thicker) */}
       <div className="absolute right-6 bottom-6 flex flex-col items-center gap-2">
         {sectionItems.map((_, index) => (
-          <div
-            key={index}
-            className={cn(
-              "rounded-full transition-all duration-300 transform-gpu",
-              activeSection === index
-                ? "w-6.5 h-1.5 bg-(--color-primary) shadow-[0_0_10px_var(--color-primary)]"
-                : "w-1.5 h-1.5 bg-(--color-muted-foreground)/20"
-            )}
-          />
+            <button
+              key={index}
+              type="button"
+              onClick={() => onNavigate(index)}
+              aria-label={`Ir para ${sectionItems[index].label}`}
+              aria-current={activeSection === index ? "true" : undefined}
+              className={cn(
+                "rounded-full transition-all duration-300 transform-gpu focus:outline-none",
+                activeSection === index
+                  ? "w-6 h-1.5 bg-(--color-primary) shadow-[0_0_10px_var(--color-primary)]"
+                  : "w-1.5 h-1.5 bg-(--color-muted-foreground)/20 hover:scale-110"
+              )}
+            />
         ))}
       </div>
     </nav>
