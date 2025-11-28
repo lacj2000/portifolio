@@ -1,5 +1,5 @@
 import SectionWrapper from "@/components/SectionWrapper";
-import Sidebar from "@/components/Sideber";
+import Sidebar from "@/components/Sidebar";
 import { ArrowRight } from "lucide-react";
 
 const Home = () => {
@@ -31,6 +31,11 @@ const Home = () => {
                     </div>
                 </SectionWrapper>
 
+                <SectionWrapper id="sobre" className="bg-[#080808]">
+                    <h2 className="font-serif text-5xl mb-10 text-white">Sobre Mim</h2>
+
+                </SectionWrapper>
+
                 <SectionWrapper id="projetos" className="bg-[#080808]">
                     <h2 className="font-serif text-5xl mb-10 text-white">Projetos Selecionados</h2>
 
@@ -43,6 +48,16 @@ const Home = () => {
                             </div>
                         ))}
                     </div>
+                </SectionWrapper>
+
+                <SectionWrapper id="skills" className="bg-[#080808]">
+                    <h2 className="font-serif text-5xl mb-10 text-white">Sobre Mim</h2>
+
+                </SectionWrapper>
+
+                <SectionWrapper id="contato" className="bg-[#080808]">
+                    <h2 className="font-serif text-5xl mb-10 text-white">Sobre Mim</h2>
+
                 </SectionWrapper>
             </div>
         </main>
