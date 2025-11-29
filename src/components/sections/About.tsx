@@ -69,8 +69,8 @@ export const About = forwardRef<HTMLDivElement, AboutProps>((_props, ref) => {
                   className="bg-white/5 rounded-xl p-5 border border-white/6 hover:bg-white/6 transition-colors"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="w-11 h-11 rounded-lg bg-linear-to-br from-blue-600/10 to-blue-400/10 flex items-center justify-center">
-                      <Icon className="w-5 h-5 text-blue-400" />
+                    <div className="w-12 h-12 shrink-0 rounded-2xl bg-linear-to-br from-blue-600/10 to-blue-400/10 flex items-center justify-center">
+                      <Icon className="w-6 h-6 text-blue-400" />
                     </div>
 
                     <div>
