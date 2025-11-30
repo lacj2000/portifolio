@@ -31,7 +31,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="relative h-screen w-screen overflow-hidden bg-background text-foreground selection:bg-primary/30 pl-20">
+    <div className="relative h-screen w-screen overflow-hidden bg-background text-foreground selection:bg-primary/30 pl-0 lg:pl-20">
 
       <Navigation activeSection={activeSection} onNavigate={scrollToSection} />
 
