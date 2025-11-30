@@ -57,7 +57,7 @@ export default function Home() {
 }
 
 const SectionWrapper = ({ children }: { children: React.ReactNode }) => (
-  <section className="h-screen w-screen shrink-0 overflow-hidden flex items-center justify-baseline relative">
+  <section className="h-screen w-screen shrink-0 overflow-y-auto flex items-start justify-start relative py-8">
     {children}
   </section>
 );
